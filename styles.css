@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --mercury-color: #419EBB;
+  --venus-color: #EDA249;
+  --earth-color: #6D2ED5;
+  --mars-color: #D14C32;
+  --jupiter-color: #D83A34;
+  --saturn-color: #CD5120;
+  --uranus-color: #1EC1A2;
+  --neptune-color: #2D68F0;
+  --white: #FFFFFF;
+  --space: #070724;
+  --dark-grey: #38384F;
+  --light-grey: #838391;
+}
+body {
+  height: 100vh;
+  background-image: url(assets/background-stars.svg);
+  background-color: var(--space);
+}
+
+
+/* ---------------------- */
+/* HEADER AND NAV SECTION */
+/* ---------------------- */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.75rem;
+  color: var(--white);
+  font-family: Antonio;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+header p {
+  padding-top: 1.375rem;
+  padding-bottom: 1.563rem;
+  padding-left: 2rem;
+}
+ul {
+  display: flex;
+  list-style: none;
+  gap: 2.063rem;
+  font-size: 0.75rem;
+  font-family: League Spartan;
+  font-weight: 500;
+  letter-spacing: 2px;
+  opacity: 0.75;
+  color: var(--white);
+  padding-right: 2.5rem;
+}
+li {
+  display: flex;
+  padding-top: 2.063rem;
+  border-top: 3px solid #ffffff00;
+}
+
+#mercury:hover {
+  border-top: 3px solid var(--mercury-color);
+}
+#venus:hover {
+  border-top: 3px solid var(--venus-color);
+}
+#earth:hover {
+  border-top: 3px solid var(--earth-color);
+}
+#mars:hover {
+  border-top: 3px solid var(--mars-color);
+}
+#jupiter:hover {
+  border-top: 3px solid var(--jupiter-color);
+}
+#saturn:hover {
+  border-top: 3px solid var(--saturn-color);
+}
+#uranus:hover {
+  border-top: 3px solid var(--uranus-color);
+}
+#neptune:hover {
+  border-top: 3px solid var(--neptune-color);
+}
+
+
+/* ------------ */
+/* INFO SECTION */
+/* ------------ */
+.info-wrapper {
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 23%;
+  padding-right: 11.459vw;
+  padding-top: 8.750vw;
+}
+#planetImg {
+  margin-right: 10.833vw;
+}
+.text-section {
+  max-width: 21.875rem;
+  font-family: League Spartan;
+}
+#planetName {
+  font-family: Antonio;
+  color: var(--white);
+  font-size: 5rem;
+  line-height: 1.04;
+  text-transform: uppercase;
+}
+#planetText {
+  margin-top: 1.438rem;
+  font-family: League Spartan;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--white);
+  opacity: .8;
+}
+.source-wrapper {
+  display: flex;
+  margin-top: 1.5rem;
+  margin-bottom: 2.438rem;
+  justify-content: flex-start;
+}
+.source {
+  color: var(--light-grey);
+  font-weight: 200;
+  letter-spacing: .6px;
+}
+#sourceLink {
+  color: var(--light-grey);
+  font-weight: 400;
+  letter-spacing: .5px;
+}
+#sourceLink:hover {
+  color: rgba(255, 255, 255, 0.653);
+}
+.source-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.5rem;
+  margin-top: 3px;
+}
+.info-topic-wrapper {
+  max-width: 21.875rem;
+  min-width: 17.563rem;
+  margin-bottom: 5.5rem;
+}
+.info-topic {
+  letter-spacing: 2.57143px;
+  text-transform: uppercase;
+  border: 1px solid var(--dark-grey);
+  padding: 0.75rem;
+  width: 100%;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.num {
+  opacity: 0.5;
+}
+.info-topic:hover {
+  background-color: var(--dark-grey);
+}
+
+
+/* ------------- */
+/* STATS SECTION */
+/* ------------- */
+.stats-wrapper {
+  display: flex;
+  gap: 1.875rem;
+  justify-content: center;
+}
+
+.stats-box {
+  /* padding-left: 1.438em; */
+ 
+  width: 255px;
+  border: 1px solid var(--dark-grey);
+  margin-bottom: 3.5rem;
+}
+.stat-title {
+  font-weight: 400;
+  font-family: League Spartan;
+  color: var(--white);
+  opacity: 0.5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 2.27;
+  padding-left: 10%;
+  padding-top: 5%;
+}
+
+.stat-text {
+  font-family: Antonio;
+  font-size: 2.5rem;
+  color: var(--white);
+  padding-left: 10%;
+  padding-bottom: 10%;
+}

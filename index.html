@@ -29,7 +29,11 @@
   <main>
 
     <section class="info-wrapper">
-      <img src="assets/planet-mercury.svg" alt="Illustrated picture of the planet Mercury" id="planetImg">
+      <div class="img-wrapper">
+        <img src="assets/planet-mercury.svg" alt="Illustrated picture of the planet Mercury" id="planetImg">
+        
+      </div>
+      <img id="planetGeologyImg" src="assets/geology-mercury.png" alt="">
       <div class="text-section">
         <h1 id="planetName">Mercury</h1>
         <p id="planetText">
@@ -46,9 +50,9 @@
         </div>
 
         <div class="info-topic-wrapper">
-          <p class="info-topic"><span class="num">01</span> Overview</p>
-          <p class="info-topic"><span class="num">02</span> Internal Structure</p>
-          <p class="info-topic"><span class="num">03</span> Surface Geology</p>
+          <p class="info-topic" id="overviewButton"><span class="num">01</span> Overview</p>
+          <p class="info-topic" id="internalButton"><span class="num">02</span> Internal Structure</p>
+          <p class="info-topic" id="surfaceButton"><span class="num">03</span> Surface Geology</p>
         </div>
       </div>
     </section>
@@ -59,15 +63,15 @@
       </div>
       <div class="stats-box">
         <h4 class="stat-title">Revolution Time</h4>
-        <p class="stat-text" id="rotationText">87.97 Days</p>
+        <p class="stat-text" id="revolutionText">87.97 Days</p>
       </div>
       <div class="stats-box">
         <h4 class="stat-title">Radius</h4>
-        <p class="stat-text" id="rotationText">2,439.7 KM</p>
+        <p class="stat-text" id="radiusText">2,439.7 KM</p>
       </div>
       <div class="stats-box">
         <h4 class="stat-title">Average Temp.</h4>
-        <p class="stat-text" id="rotationText">430°c</p>
+        <p class="stat-text" id="tempText">430°c</p>
       </div>
     </section>
   </main>

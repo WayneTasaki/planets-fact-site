@@ -24,6 +24,9 @@ body {
   background-image: url(assets/background-stars.svg);
   background-color: var(--space);
 }
+main {
+  height: 100vh;
+}
 
 
 /* ---------------------- */
@@ -59,6 +62,7 @@ li {
   display: flex;
   padding-top: 2.063rem;
   border-top: 3px solid #ffffff00;
+  cursor: pointer;
 }
 
 #mercury:hover {
@@ -93,18 +97,35 @@ li {
 .info-wrapper {
   color: var(--white);
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-left: 23%;
   padding-right: 11.459vw;
-  padding-top: 8.750vw;
+  padding-bottom: 5.5rem;
+  position: relative;
+
+}
+.img-wrapper {
+  margin: 0 auto;
+  height: 100%;
 }
 #planetImg {
-  margin-right: 10.833vw;
+  max-width: 582px;
+}
+#planetGeologyImg {
+  width: 10.188rem;
+  display: block; 
+  position: absolute; 
+  bottom: 8rem;
+  left: 26.5%;
+  right: 0;
+  
 }
 .text-section {
-  max-width: 21.875rem;
-  font-family: League Spartan;
+  width: 21.875rem;
+  font-family: League Spartan; 
+  margin-top: 7.25rem;
+ 
 }
 #planetName {
   font-family: Antonio;
@@ -150,7 +171,7 @@ li {
 .info-topic-wrapper {
   max-width: 21.875rem;
   min-width: 17.563rem;
-  margin-bottom: 5.5rem;
+  
 }
 .info-topic {
   letter-spacing: 2.57143px;
@@ -176,18 +197,17 @@ li {
 .stats-wrapper {
   display: flex;
   gap: 1.875rem;
-  justify-content: center;
+  margin-bottom: 3.5rem;
+  padding-right: 11.459vw;
+  padding-left: 11.459vw;
 }
-
 .stats-box {
-  /* padding-left: 1.438em; */
- 
   width: 255px;
   border: 1px solid var(--dark-grey);
-  margin-bottom: 3.5rem;
 }
 .stat-title {
   font-weight: 400;
+  font-size: .85rem;
   font-family: League Spartan;
   color: var(--white);
   opacity: 0.5;
@@ -197,7 +217,6 @@ li {
   padding-left: 10%;
   padding-top: 5%;
 }
-
 .stat-text {
   font-family: Antonio;
   font-size: 2.5rem;

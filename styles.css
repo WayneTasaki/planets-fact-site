@@ -15,17 +15,42 @@
   --uranus-color: #1EC1A2;
   --neptune-color: #2D68F0;
   --white: #FFFFFF;
+  --white-text: #FFFFFFCC;
   --space: #070724;
   --dark-grey: #38384F;
   --light-grey: #838391;
 }
+html {
+  overflow: hidden;
+}
 body {
   height: 100vh;
-  background-image: url(assets/background-stars.svg);
   background-color: var(--space);
+  position: relative;
+  /* max-width: 1440px;
+  margin: 0 auto; */
 }
 main {
+  max-width: 1640px;
+  margin: 0 auto;
+}
+@keyframes slide {
+  0%{
+    transform: translate3d(-550px, 0, 0);
+  }
+  100%{
+    transform: translate3d(-1692px, 0, 0);
+  }
+}
+.scrolling-image {
+  background-image: url(assets/background-stars.svg);
+  background-repeat: repeat-x;
+  width: 5000px;
   height: 100vh;
+  z-index: 0;
+  position: absolute;
+  
+  animation: slide 60s linear infinite;
 }
 
 
@@ -39,7 +64,11 @@ header {
   font-size: 1.75rem;
   color: var(--white);
   font-family: Antonio;
+  border-width: 100vw;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+nav {
+
 }
 header p {
   padding-top: 1.375rem;
@@ -96,36 +125,40 @@ li {
 /* ------------ */
 .info-wrapper {
   color: var(--white);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 11.459vw;
-  padding-bottom: 5.5rem;
+  margin-bottom: 5.5rem;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  grid-template-rows: 1fr;
+  grid-column-gap: 1px;
+  grid-row-gap: 0px;
+  place-items: center;
+  padding-right: 165px;
   position: relative;
-
 }
 .img-wrapper {
-  margin: 0 auto;
+  display: grid;
+  place-items: center;
   height: 100%;
+  width: 100%;
+  grid-area: 1 / 1 / 2 / 2;
 }
 #planetImg {
   max-width: 582px;
+  margin: 0 auto;
+  margin-top: 3rem;
 }
 #planetGeologyImg {
   width: 10.188rem;
-  display: block; 
-  position: absolute; 
-  bottom: 8rem;
-  left: 26.5%;
-  right: 0;
-  
+  display: none; 
+  position: absolute;
+  bottom: 0;
+  margin: auto;
 }
 .text-section {
-  width: 21.875rem;
+  max-width: 21.875rem;
   font-family: League Spartan; 
   margin-top: 7.25rem;
- 
+  grid-area: 1 / 2 / 2 / 3;
 }
 #planetName {
   font-family: Antonio;
@@ -133,15 +166,16 @@ li {
   font-size: 5rem;
   line-height: 1.04;
   text-transform: uppercase;
+
 }
+
 #planetText {
   margin-top: 1.438rem;
   font-family: League Spartan;
   font-size: 1.15rem;
   line-height: 1.5;
   font-weight: 300;
-  color: var(--white);
-  opacity: .8;
+  color: var(--white-text);
 }
 .source-wrapper {
   display: flex;
@@ -181,7 +215,7 @@ li {
   width: 100%;
   margin-top: 1rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 .num {
   opacity: 0.5;
@@ -197,9 +231,9 @@ li {
 .stats-wrapper {
   display: flex;
   gap: 1.875rem;
-  margin-bottom: 3.5rem;
-  padding-right: 11.459vw;
-  padding-left: 11.459vw;
+  justify-content: space-between;
+  padding-right: 165px;
+  padding-left: 165px;
 }
 .stats-box {
   width: 255px;
@@ -223,4 +257,12 @@ li {
   color: var(--white);
   padding-left: 10%;
   padding-bottom: 10%;
+  transition: 0.5s;
+}
+#rotationText {
+  transition: 0.5s;
+}
+
+.hide {
+  opacity: 0;
 }

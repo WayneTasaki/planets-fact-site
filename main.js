@@ -1,3 +1,9 @@
+window.onload = () => {
+  overviewButton.style.backgroundColor = '#419EBB'
+  internalButton.style.backgroundColor = 'transparent'
+  surfaceButton.style.backgroundColor = 'transparent'
+}
+
 async function fetchJson() {
   const response = await fetch('./data.json');
   const data = await response.json();
@@ -191,22 +197,27 @@ fetchJson().then(getPlanets => {
   neptuneButton.addEventListener('click', () => changePlanet(planetNeptune))
   // --- CONTENT BUTTONS ---
   const overviewButton = document.getElementById('overviewButton')
+  overviewButton.addEventListener('click', () => overviewChange())
   const internalButton = document.getElementById('internalButton')
+  internalButton.addEventListener('click', () => internalStructureChange())
   const surfaceButton = document.getElementById('surfaceButton')
+  surfaceButton.addEventListener('click', () => surfaceGeologyChange())
 
 
 // function when nav item is clicked, change: planetImg, planetName, planetText, sourceLink, rotationText, revolutionText, radiusText, tempText, and change overviewButton background to corresponding planet color
+// main function that's fired when nav link is clicked.
 function changePlanet(planet) {
-  function fadein() {
     planetName.classList.add('hide');
     rotationText.classList.add('hide')
     revolutionText.classList.add('hide')
     radiusText.classList.add('hide')
     tempText.classList.add('hide')
     planetText.classList.add('hide')
-    
     planetImg.classList.add('hide')
+    planetGeologyImg.classList.add('hide')
     overviewButton.style.backgroundColor = 'transparent'
+    internalButton.style.backgroundColor = 'transparent'
+    surfaceButton.style.backgroundColor = 'transparent'
     setTimeout(function() { 
       planetName.classList.remove('hide')
       rotationText.classList.remove('hide')
@@ -224,16 +235,196 @@ function changePlanet(planet) {
       planetText.innerText = planet[5]
       sourceLink.href = planet[6]
       planetImg.src = planet[7]
+      planetGeologyImg.src = planet[13]
       overviewButton.style.backgroundColor = planet[14]
     }, 400);
-  }
-  fadein()
 }
 
+function internalStructureChange() {
+  let planetPage = planetName.innerText
+    // classList.add 'hide' - fade out everything that changes when switching to internal structure info
+    planetText.classList.add('hide')
+    planetImg.classList.add('hide')
+    planetGeologyImg.classList.add('hide')
+    overviewButton.style.backgroundColor = 'transparent'
+    surfaceButton.style.backgroundColor = 'transparent'
+    setTimeout(function() { 
+      // classList.remove 'hide' - fade in all the same info from above
+      planetText.classList.remove('hide')
+      planetImg.classList.remove('hide')
+      if (planetPage === 'MERCURY') {
+        planetText.innerText = planetMercury[8]
+        sourceLink.href = planetMercury[9]
+        planetImg.src = planetMercury[10]
+        internalButton.style.backgroundColor = mercuryColor
+      }
+      if (planetPage === 'VENUS') {
+        planetText.innerText = planetVenus[8]
+        sourceLink.href = planetVenus[9]
+        planetImg.src = planetVenus[10]
+        internalButton.style.backgroundColor = venusColor
+      }
+      if (planetPage === 'EARTH') {
+        planetText.innerText = planetEarth[8]
+        sourceLink.href = planetEarth[9]
+        planetImg.src = planetEarth[10]
+        internalButton.style.backgroundColor = earthColor
+      }
+      if (planetPage === 'MARS') {
+        planetText.innerText = planetMars[8]
+        sourceLink.href = planetMars[9]
+        planetImg.src = planetMars[10]
+        internalButton.style.backgroundColor = marsColor
+      }
+      if (planetPage === 'JUPITER') {
+        planetText.innerText = planetJupiter[8]
+        sourceLink.href = planetJupiter[9]
+        planetImg.src = planetJupiter[10]
+        internalButton.style.backgroundColor = jupiterColor
+      }
+      if (planetPage === 'SATURN') {
+        planetText.innerText = planetSaturn[8]
+        sourceLink.href = planetSaturn[9]
+        planetImg.src = planetSaturn[10]
+        internalButton.style.backgroundColor = saturnColor
+      }
+      if (planetPage === 'URANUS') {
+        planetText.innerText = planetUranus[8]
+        sourceLink.href = planetUranus[9]
+        planetImg.src = planetUranus[10]
+        internalButton.style.backgroundColor = uranusColor
+      }
+      if (planetPage === 'NEPTUNE') {
+        planetText.innerText = planetNeptune[8]
+        sourceLink.href = planetNeptune[9]
+        planetImg.src = planetNeptune[10]
+        internalButton.style.backgroundColor = neptuneColor
+      }
+    }, 300);
+}
 
+function surfaceGeologyChange() {
+  let planetPage = planetName.innerText
+  planetText.classList.add('hide')
+  planetImg.classList.add('hide')
+  overviewButton.style.backgroundColor = 'transparent'
+  internalButton.style.backgroundColor = 'transparent'
+  setTimeout(function() { 
+    // classList.remove 'hide' - fade in all the same info from above
+    planetText.classList.remove('hide')
+    planetImg.classList.remove('hide')
+    if (planetPage === 'MERCURY') {
+      planetText.innerText = planetMercury[11]
+      sourceLink.href = planetMercury[12]
+      planetImg.src = planetMercury[7]
+      planetGeologyImg.classList.remove('hide')
+      surfaceButton.style.backgroundColor = mercuryColor
+    }
+    if (planetPage === 'VENUS') {
+      planetText.innerText = planetVenus[8]
+      sourceLink.href = planetVenus[9]
+      planetImg.src = planetVenus[7]
+      planetGeologyImg.classList.remove('hide')
+      surfaceButton.style.backgroundColor = venusColor
+    }
+    if (planetPage === 'EARTH') {
+      planetText.innerText = planetEarth[8]
+      sourceLink.href = planetEarth[9]
+      planetImg.src = planetEarth[7]
+      planetGeologyImg.classList.remove('hide')
+      surfaceButton.style.backgroundColor = earthColor
+    }
+    if (planetPage === 'MARS') {
+      planetText.innerText = planetMars[8]
+      sourceLink.href = planetMars[9]
+      planetImg.src = planetMars[7]
+      planetGeologyImg.classList.remove('hide')
+      surfaceButton.style.backgroundColor = marsColor
+    }
+    if (planetPage === 'JUPITER') {
+      planetText.innerText = planetJupiter[8]
+      sourceLink.href = planetJupiter[9]
+      planetImg.src = planetJupiter[7]
+      planetGeologyImg.classList.remove('hide')
+      surfaceButton.style.backgroundColor = jupiterColor
+    }
+    if (planetPage === 'SATURN') {
+      planetText.innerText = planetSaturn[8]
+      sourceLink.href = planetSaturn[9]
+      planetImg.src = planetSaturn[7]
+      planetGeologyImg.classList.remove('hide')
+      surfaceButton.style.backgroundColor = saturnColor
+    }
+    if (planetPage === 'URANUS') {
+      planetText.innerText = planetUranus[8]
+      sourceLink.href = planetUranus[9]
+      planetImg.src = planetUranus[7]
+      planetGeologyImg.classList.remove('hide')
+      surfaceButton.style.backgroundColor = uranusColor
+    }
+    if (planetPage === 'NEPTUNE') {
+      planetText.innerText = planetNeptune[8]
+      sourceLink.href = planetNeptune[9]
+      planetImg.src = planetNeptune[7]
+      planetGeologyImg.classList.remove('hide')
+      surfaceButton.style.backgroundColor = neptuneColor
+    }
+  }, 300);
+}
+
+function overviewChange() {
+  function planetOverview(planet) {
+    planetText.classList.add('hide')
+    planetImg.classList.add('hide')
+    planetGeologyImg.classList.add('hide')
+    overviewButton.style.backgroundColor = 'transparent'
+    internalButton.style.backgroundColor = 'transparent'
+    surfaceButton.style.backgroundColor = 'transparent'
+    setTimeout(function() { 
+      planetText.classList.remove('hide')
+      sourceLink.classList.remove('hide')
+      planetImg.classList.remove('hide')
+      planetName.innerText = planet[0]
+      rotationText.innerText = planet[1]
+      revolutionText.innerText = planet[2]
+      radiusText.innerText = planet[3]
+      tempText.innerText = planet[4]
+      planetText.innerText = planet[5]
+      sourceLink.href = planet[6]
+      planetImg.src = planet[7]
+      planetGeologyImg.src = planet[13]
+      overviewButton.style.backgroundColor = planet[14]
+    }, 400);
+}
+  let planetPage = planetName.innerText
+  internalButton.style.backgroundColor = 'transparent'
+  surfaceButton.style.backgroundColor = 'transparent'
+  if (planetPage === 'MERCURY') {
+    planetOverview(planetMercury)    
+  }
+  if (planetPage === 'VENUS') {
+    planetOverview(planetVenus) 
+  }
+  if (planetPage === 'EARTH') {
+    planetOverview(planetEarth) 
+  }
+  if (planetPage === 'MARS') {
+    planetOverview(planetMars) 
+  }
+  if (planetPage === 'JUPITER') {
+    planetOverview(planetJupiter) 
+  }
+  if (planetPage === 'SATURN') {
+    planetOverview(planetSaturn) 
+  }
+  if (planetPage === 'URANUS') {
+    planetOverview(planetUranus) 
+  }
+  if (planetPage === 'NEPTUNE') {
+    planetOverview(planetNeptune) 
+  }
+}
 
 });
-window.onload = () => {
-  overviewButton.style.backgroundColor = '#419EBB'
-}
+
 // [Name, Rotation, Revolution, Radius, Temp, OverviewText, OverviewSourceLink, OverviewImg, InternalText, InternalSourceLink, InternalImg, GeologyText, GeologySourceLink, GeologyImg, Color]

@@ -21,7 +21,7 @@
   --light-grey: #838391;
 }
 html {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body {
   height: 100vh;
@@ -146,13 +146,14 @@ li {
   max-width: 582px;
   margin: 0 auto;
   margin-top: 3rem;
+  transition: 0.5s;
 }
 #planetGeologyImg {
   width: 10.188rem;
-  display: none; 
   position: absolute;
   bottom: 0;
   margin: auto;
+  transition: 0.5s;
 }
 .text-section {
   max-width: 21.875rem;
@@ -166,7 +167,7 @@ li {
   font-size: 5rem;
   line-height: 1.04;
   text-transform: uppercase;
-
+  transition: 0.5s;
 }
 
 #planetText {
@@ -176,6 +177,7 @@ li {
   line-height: 1.5;
   font-weight: 300;
   color: var(--white-text);
+  transition: 0.5s;
 }
 .source-wrapper {
   display: flex;
@@ -205,7 +207,6 @@ li {
 .info-topic-wrapper {
   max-width: 21.875rem;
   min-width: 17.563rem;
-  
 }
 .info-topic {
   letter-spacing: 2.57143px;

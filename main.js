@@ -1,7 +1,7 @@
 window.onload = () => {
   overviewButton.style.backgroundColor = '#419EBB'
-  internalButton.style.backgroundColor = 'transparent'
-  surfaceButton.style.backgroundColor = 'transparent'
+  internalButton.style.backgroundColor = ''
+  surfaceButton.style.backgroundColor = ''
 }
 
 async function fetchJson() {
@@ -215,9 +215,9 @@ function changePlanet(planet) {
     planetText.classList.add('hide')
     planetImg.classList.add('hide')
     planetGeologyImg.classList.add('hide')
-    overviewButton.style.backgroundColor = 'transparent'
-    internalButton.style.backgroundColor = 'transparent'
-    surfaceButton.style.backgroundColor = 'transparent'
+    overviewButton.style.backgroundColor = ''
+    internalButton.style.backgroundColor = ''
+    surfaceButton.style.backgroundColor = ''
     setTimeout(function() { 
       planetName.classList.remove('hide')
       rotationText.classList.remove('hide')
@@ -246,8 +246,8 @@ function internalStructureChange() {
     planetText.classList.add('hide')
     planetImg.classList.add('hide')
     planetGeologyImg.classList.add('hide')
-    overviewButton.style.backgroundColor = 'transparent'
-    surfaceButton.style.backgroundColor = 'transparent'
+    overviewButton.style.backgroundColor = ''
+    surfaceButton.style.backgroundColor = ''
     setTimeout(function() { 
       // classList.remove 'hide' - fade in all the same info from above
       planetText.classList.remove('hide')
@@ -307,8 +307,8 @@ function surfaceGeologyChange() {
   let planetPage = planetName.innerText
   planetText.classList.add('hide')
   planetImg.classList.add('hide')
-  overviewButton.style.backgroundColor = 'transparent'
-  internalButton.style.backgroundColor = 'transparent'
+  overviewButton.style.backgroundColor = ''
+  internalButton.style.backgroundColor = ''
   setTimeout(function() { 
     // classList.remove 'hide' - fade in all the same info from above
     planetText.classList.remove('hide')
@@ -397,8 +397,8 @@ function overviewChange() {
     }, 400);
 }
   let planetPage = planetName.innerText
-  internalButton.style.backgroundColor = 'transparent'
-  surfaceButton.style.backgroundColor = 'transparent'
+  internalButton.style.backgroundColor = ''
+  surfaceButton.style.backgroundColor = ''
   if (planetPage === 'MERCURY') {
     planetOverview(planetMercury)    
   }
@@ -425,6 +425,29 @@ function overviewChange() {
   }
 }
 
+
+
 });
 
-// [Name, Rotation, Revolution, Radius, Temp, OverviewText, OverviewSourceLink, OverviewImg, InternalText, InternalSourceLink, InternalImg, GeologyText, GeologySourceLink, GeologyImg, Color]
+// set your own values between here
+let maxFontSize = 25.563
+let minFontSize = 10
+let maxWidth = 48
+let minWidth = 34.375
+// set your own values between here
+
+let slope = (maxFontSize - minFontSize) / (maxWidth - minWidth)
+let yAxisIntersection = -minWidth * slope + minFontSize
+let clampSlope = slope * 100
+let finalClamp = `clamp(${minFontSize}rem, ${yAxisIntersection.toFixed(4)}rem + ${clampSlope.toFixed(4)}vw, ${maxFontSize}rem);`
+
+// copy paste the string into your css!
+console.log(finalClamp)
+
+
+
+// let preferredValue = yAxisIntersection[rem] + (slope * 100)[vw]
+// console.log(yAxisIntersection)
+// 1.25rem ,0.809rem + 1.877vw, 2.5rem
+
+// clamp(0.5rem, 0.4338009074246567rem + 0.2824434361948258vw, 0.688rem)

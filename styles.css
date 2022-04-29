@@ -22,16 +22,17 @@
 }
 html {
   overflow-x: hidden;
+  /* height: 100vh; */
 }
 body {
-  height: 100vh;
+  /* height: 100vh; */
   background-color: var(--space);
   position: relative;
-  /* max-width: 1440px;
-  margin: 0 auto; */
+
 }
 main {
   max-width: 1640px;
+  height: 100vh;
   margin: 0 auto;
 }
 @keyframes slide {
@@ -164,7 +165,7 @@ li {
 #planetName {
   font-family: Antonio;
   color: var(--white);
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 1.6197rem + 3.7559vw, 5rem);
   line-height: 1.04;
   text-transform: uppercase;
   transition: 0.5s;
@@ -173,7 +174,7 @@ li {
 #planetText {
   margin-top: 1.438rem;
   font-family: League Spartan;
-  font-size: 1.15rem;
+  font-size: clamp(0.788rem, 0.6605rem + 0.5439vw, 1.15rem);
   line-height: 1.5;
   font-weight: 300;
   color: var(--white-text);
@@ -217,6 +218,7 @@ li {
   margin-top: 1rem;
   cursor: pointer;
   transition: 0.5s;
+  font-size: clamp(0.625rem, 0.4930rem + 0.5634vw, 1rem);
 }
 .num {
   opacity: 0.5;
@@ -242,7 +244,7 @@ li {
 }
 .stat-title {
   font-weight: 400;
-  font-size: .85rem;
+  font-size: clamp(0.688rem, 0.6310rem + 0.2434vw, 0.85rem);
   font-family: League Spartan;
   color: var(--white);
   opacity: 0.5;
@@ -254,7 +256,7 @@ li {
 }
 .stat-text {
   font-family: Antonio;
-  font-size: 2.5rem;
+  font-size: clamp(1.25rem ,0.809rem + 1.877vw, 2.5rem);
   color: var(--white);
   padding-left: 10%;
   padding-bottom: 10%;
@@ -264,6 +266,98 @@ li {
   transition: 0.5s;
 }
 
+/* class created for fade-in effect */
 .hide {
   opacity: 0;
+}
+
+
+/* ------ */
+/* TABLET */
+/* ------ */
+@media (max-width: 1018px) {
+  body {
+    padding: 2.5rem 0 2.5rem 0;
+  }
+  main {
+    max-width: 1017px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  header p {
+    padding: 0;
+  }
+  ul {
+    margin-top: 1.25rem;
+    margin-bottom: 1.563rem;
+    padding: 0;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  li {
+    padding-top: .5rem;
+  }
+
+  .info-wrapper {
+    /* display: grid; */
+    /* grid-template-columns: repeat(2, 1fr); */
+    /* grid-template-rows: repeat(2, 460px); */
+    /* place-items: center; */
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    height: 725px;
+    margin: 0;
+  }
+  .img-wrapper {
+    /* grid-area: 1 / 1 / 2 / 3; */
+    height: 460px;
+    width: 100%;
+    /* place-items: center; */
+    display: flex;
+    justify-content: center;
+  }
+  #planetImg {
+    -webkit-transform: scale(0.65); /* Saf3.1+, Chrome */
+    -moz-transform: scale(0.65); /* FF3.5+ */
+    -ms-transform: scale(0.65); /* IE9 */
+    -o-transform: scale(0.65); /* Opera 10.5+ */
+    transform: scale(0.65);
+    margin-top: 0;
+    margin: '';
+    max-width: '';
+  }
+  .text-section {
+    display: flex;
+    margin-top: 0;
+    min-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .text-wrapper {
+    min-width: clamp(10rem, -29.2644rem + 114.2239vw, 25.563rem);
+    max-width: clamp(10rem, -29.2644rem + 114.2239vw, 25.563rem);
+  }
+  #planetText {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  .info-topic-wrapper {
+    max-width: clamp(10rem, -48.1860rem + 143.2271vw, 20.563rem);
+    min-width: clamp(10rem, -48.1860rem + 143.2271vw, 20.563rem);
+  }
+  .source-wrapper {
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 683px) {
+  
 }

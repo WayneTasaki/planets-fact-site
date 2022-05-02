@@ -429,11 +429,44 @@ function overviewChange() {
 
 });
 
+
+const menu = document.querySelector(".menu");
+const menuItems = document.querySelectorAll(".menuItem");
+const hamburger= document.querySelector(".hamburger");
+const closeIcon= document.querySelector(".closeIcon");
+const menuIcon = document.querySelector(".menuIcon");
+const main = document.getElementById('main')
+
+function toggleMenu() {
+  if (menu.classList.contains("showMenu")) {
+    menu.classList.remove("showMenu");
+    closeIcon.style.display = "none";
+    menuIcon.style.display = "";
+    main.classList.remove('hide')
+  } else {
+    menu.classList.add("showMenu");
+    closeIcon.style.display = "";
+    menuIcon.style.display = "none";
+    main.classList.add('hide')
+  }
+}
+
+hamburger.addEventListener("click", toggleMenu);
+
+menuItems.forEach( 
+  function(menuItem) { 
+    menuItem.addEventListener("click", toggleMenu);
+  }
+)
+
+
+
+
 // set your own values between here
-let maxFontSize = 25.563
-let minFontSize = 10
-let maxWidth = 48
-let minWidth = 34.375
+let maxFontSize = 4.5
+let minFontSize = 1.5
+let maxWidth = 41.25
+let minWidth = 23.438
 // set your own values between here
 
 let slope = (maxFontSize - minFontSize) / (maxWidth - minWidth)

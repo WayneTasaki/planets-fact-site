@@ -7,27 +7,41 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/earthfav.png">
   <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
+  <script src="https://kit.fontawesome.com/4a225315bb.js" crossorigin="anonymous"></script>
+
   
   <title>Wayne Tasaki | Planet Facts</title>
 </head>
 <body>
     <!-- <div class="scrolling-image"></div> -->
-  <header><p>THE PLANETS</p>
+  <header id="header"><p>THE PLANETS</p>
     <nav>
-      <ul>
-        <li id="mercury">MERCURY</li>
-        <li id="venus">VENUS</li>
-        <li id="earth">EARTH</li>
-        <li id="mars">MARS</li>
-        <li id="jupiter">JUPITER</li>
-        <li id="saturn">SATURN</li>
-        <li id="uranus">URANUS</li>
-        <li id="neptune">NEPTUNE</li>
+      <ul class="menu">
+        <li class="menuItem" id="mercury">
+          <span class="menuPlanetIcon" id="mercuryIcon"></span> MERCURY <span class="chevron"><img src="assets/icon-chevron.svg" alt=""></span></li>
+        <li class="menuItem" id="venus">
+          <span class="menuPlanetIcon" id="venusIcon"></span>VENUS <span class="chevron"><img src="assets/icon-chevron.svg" alt=""></span></li>
+        <li class="menuItem" id="earth">
+          <span class="menuPlanetIcon" id="earthIcon"></span>EARTH <span class="chevron"><img src="assets/icon-chevron.svg" alt=""></span></li>
+        <li class="menuItem" id="mars">
+          <span class="menuPlanetIcon" id="marsIcon"></span>MARS <span class="chevron"><img src="assets/icon-chevron.svg" alt=""></span></li>
+        <li class="menuItem" id="jupiter">
+          <span class="menuPlanetIcon" id="jupiterIcon"></span>JUPITER <span class="chevron"><img src="assets/icon-chevron.svg" alt=""></span></li>
+        <li class="menuItem" id="saturn">
+          <span class="menuPlanetIcon" id="saturnIcon"></span>SATURN <span class="chevron"><img src="assets/icon-chevron.svg" alt=""></span></li>
+        <li class="menuItem" id="uranus">
+          <span class="menuPlanetIcon" id="uranusIcon"></span>URANUS <span class="chevron"><img src="assets/icon-chevron.svg" alt=""></span></li>
+        <li class="menuItem" id="neptune">
+          <span class="menuPlanetIcon" id="neptuneIcon"></span>NEPTUNE <span class="chevron"><img src="assets/icon-chevron.svg" alt=""></span></li>
       </ul>
+      <button class="hamburger">
+        <p><i class=" menuIcon fa-solid fa-bars fa-2xl"></i></p>
+        <i class="closeIcon fa-solid fa-bars fa-2xl" style="display: none;"></i>
+      </button>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="info-wrapper">
       <div class="img-wrapper">
         <img src="assets/planet-mercury.svg" alt="Illustrated picture of the planet Mercury" id="planetImg">

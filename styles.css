@@ -85,6 +85,12 @@ header p {
   color: var(--white);
   padding-right: 2.5rem;
 }
+.hamburger {
+  display: none;
+}
+.chevron {
+  display: none;
+}
 li {
   display: flex;
   padding-top: 2.063rem;
@@ -121,6 +127,9 @@ li {
 /* ------------ */
 /* INFO SECTION */
 /* ------------ */
+.info-topic-wrapper-mobile {
+  display: none;
+}
 .info-wrapper {
   color: var(--white);
   margin-bottom: 5.5rem;
@@ -171,7 +180,7 @@ li {
 #planetText {
   margin-top: 1.438rem;
   font-family: League Spartan;
-  font-size: clamp(0.788rem, 0.6605rem + 0.5439vw, 1.15rem);
+  font-size: clamp(0.988rem, 0.6605rem + 0.5439vw, 1.15rem);
   line-height: 1.5;
   font-weight: 300;
   color: var(--white-text);
@@ -241,7 +250,7 @@ li {
 }
 .stat-title {
   font-weight: 400;
-  font-size: clamp(0.5rem, 0.3768rem + 0.5258vw, 0.85rem);
+  font-size: clamp(0.7rem, 0.3768rem + 0.5258vw, 0.85rem);
   font-family: League Spartan;
   color: var(--white);
   opacity: 0.5;
@@ -253,7 +262,7 @@ li {
 }
 .stat-text {
   font-family: Antonio;
-  font-size: clamp(1.25rem ,0.809rem + 1.877vw, 2.5rem);
+  font-size: clamp(1.45rem ,0.809rem + 1.877vw, 2.5rem);
   color: var(--white);
   padding-left: 10%;
   padding-bottom: 10%;
@@ -312,11 +321,12 @@ li {
   }
   .img-wrapper {
     /* grid-area: 1 / 1 / 2 / 3; */
-    height: 460px;
+    height: clamp(19.625rem, 14.3031rem + 22.7063vw, 28.75rem);
     width: 100%;
     /* place-items: center; */
     display: flex;
     justify-content: center;
+    position: relative;
   }
   #planetImg {
     -webkit-transform: scale(0.65); /* Saf3.1+, Chrome */
@@ -327,6 +337,13 @@ li {
     margin-top: 0;
     margin: '';
     max-width: '';
+  }
+  #planetGeologyImg {
+    -webkit-transform: scale(.75); /* Saf3.1+, Chrome */
+    -moz-transform: scale(.75); /* FF3.5+ */
+    -ms-transform: scale(.75); /* IE9 */
+    -o-transform: scale(.75); /* Opera 10.5+ */
+    transform: scale(.75);
   }
   .text-section {
     display: flex;
@@ -370,8 +387,7 @@ li {
     padding: 0;
   }
   main {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 0;
     z-index: 95;
     opacity: 1;
     transition: 0.5s;
@@ -387,7 +403,10 @@ li {
   header p {
     /* padding: 1rem 1.5rem 1rem 1.5rem; */
   }
-
+  .info-wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
   .menu {
     opacity: 0;
     gap: 0;
@@ -396,7 +415,7 @@ li {
     transition: transform 0.5s ease-in-out;
   }
 
-  /*  */
+  /* HAMBURGER MENU */
   .menuItem {
     display: flex;
     color: white;
@@ -409,12 +428,11 @@ li {
     display: block;
     margin-left: auto;
   }
-  
   .menuItem:hover {
     text-decoration: underline;
   }
-  
   .hamburger {
+    display: block;
     position: absolute;
     z-index: 100;
     top: 1.555rem;
@@ -425,9 +443,6 @@ li {
     color: var(--white);
     cursor: pointer;
   }
-
-
-  
   .closeIcon {
     display: none;
   }
@@ -444,16 +459,11 @@ li {
     color: white;
     list-style: none;
     opacity: 1;
-
     display: flex;
     flex-direction: column;
     padding-left: 1.5rem;
     font-size: 1rem;
     margin-top: 4.45rem;
-  }
-  #mercury:hover, #venus:hover, #earth:hover, #mars:hover, #jupiter:hover, #saturn:hover, #uranus:hover, #neptune:hover {
-    border-top: 3px solid transparent;
-    text-decoration: none;
   }
   #mercuryIcon {
     background-color: #DEF4FC;
@@ -490,5 +500,87 @@ li {
   .showMenu {
     transform: translateY(0);
     opacity: 1;
+  }
+
+  #mercury:hover, #venus:hover, #earth:hover, #mars:hover, #jupiter:hover, #saturn:hover, #uranus:hover, #neptune:hover {
+    border-top: 3px solid transparent;
+    text-decoration: none;
+  }
+ 
+
+  /* INFO TOPIC NAV */
+  .info-topic-wrapper {
+    display: none;
+  }
+  .info-topic-wrapper-mobile {
+    display: flex;
+    justify-content: space-between;
+    font-family: League Spartan;
+    letter-spacing: 1.92857px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    font-size: 0.688rem;
+    border-bottom: 1px solid var(--dark-grey);
+  }
+  .info-topic-mobile {
+    color: white;
+    font-size: clamp(0.75rem, 0.4210rem + 1.4035vw, 1rem);
+    opacity: .5;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    cursor: pointer;
+    padding-top: 1.25rem;
+    padding-bottom: 1.063rem;
+    border-bottom: 4px solid transparent;
+  }
+  .active {
+    border-bottom: 4px solid;
+    opacity: 1;
+  }
+  .info-wrapper {
+    height: auto;
+  }
+  #planetImg {
+    transform: scale(.5);
+  }
+  #planetGeologyImg {
+    -webkit-transform: scale(.60); /* Saf3.1+, Chrome */
+    -moz-transform: scale(.60); /* FF3.5+ */
+    -ms-transform: scale(.60); /* IE9 */
+    -o-transform: scale(.60); /* Opera 10.5+ */
+    transform: scale(.60);
+  }
+  .text-section {
+    justify-content: center;
+    width: 100%;
+  }
+  .text-wrapper {
+    max-width: 30rem;
+    text-align: center;
+  }
+  .source-wrapper {
+    justify-content: center;
+  }
+
+  .stats-wrapper {
+    flex-direction: column;
+    gap: .5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 30rem;
+    margin: 0 auto;
+    margin-bottom: 2.938rem;
+  }
+  .stats-box {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+  }
+  .stat-title {
+    padding: 0;
+  }
+  .stat-text {
+    padding: 0;
   }
 }

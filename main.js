@@ -1,8 +1,17 @@
 window.onload = () => {
+  if (window.innerWidth > 660) {
   overviewButton.style.backgroundColor = '#419EBB'
   internalButton.style.backgroundColor = ''
   surfaceButton.style.backgroundColor = ''
+  } else {
+    overviewButtonMobile.classList.add('active')
+    overviewButtonMobile.style.borderColor = '#419EBB'
+    internalButtonMobile.style.backgroundColor = ''
+    surfaceButtonMobile.style.backgroundColor = ''
+  }
 }
+
+
 
 async function fetchJson() {
   const response = await fetch('./data.json');
@@ -195,6 +204,7 @@ fetchJson().then(getPlanets => {
   uranusButton.addEventListener('click', () => changePlanet(planetUranus))
   const neptuneButton = document.getElementById('neptune')
   neptuneButton.addEventListener('click', () => changePlanet(planetNeptune))
+
   // --- CONTENT BUTTONS ---
   const overviewButton = document.getElementById('overviewButton')
   overviewButton.addEventListener('click', () => overviewChange())
@@ -202,6 +212,14 @@ fetchJson().then(getPlanets => {
   internalButton.addEventListener('click', () => internalStructureChange())
   const surfaceButton = document.getElementById('surfaceButton')
   surfaceButton.addEventListener('click', () => surfaceGeologyChange())
+
+  // Mobile Content Buttons
+  const overviewButtonMobile = document.getElementById('overviewButtonMobile')
+  overviewButtonMobile.addEventListener('click', () => overviewChange())
+  const internalButtonMobile = document.getElementById('internalButtonMobile')
+  internalButtonMobile.addEventListener('click', () => internalStructureChange())
+  const surfaceButtonMobile = document.getElementById('surfaceButtonMobile')
+  surfaceButtonMobile.addEventListener('click', () => surfaceGeologyChange())
 
 
 // function when nav item is clicked, change: planetImg, planetName, planetText, sourceLink, rotationText, revolutionText, radiusText, tempText, and change overviewButton background to corresponding planet color
@@ -218,6 +236,14 @@ function changePlanet(planet) {
     overviewButton.style.backgroundColor = ''
     internalButton.style.backgroundColor = ''
     surfaceButton.style.backgroundColor = ''
+    overviewButtonMobile.classList.remove('active')
+    internalButtonMobile.classList.remove('active')
+    surfaceButtonMobile.classList.remove('active')
+    overviewButtonMobile.style.borderColor = ''
+    internalButtonMobile.style.borderColor = ''
+    surfaceButtonMobile.style.borderColor = ''
+
+    
     setTimeout(function() { 
       planetName.classList.remove('hide')
       rotationText.classList.remove('hide')
@@ -237,6 +263,8 @@ function changePlanet(planet) {
       planetImg.src = planet[7]
       planetGeologyImg.src = planet[13]
       overviewButton.style.backgroundColor = planet[14]
+      overviewButtonMobile.style.borderColor = planet[14]
+      overviewButtonMobile.classList.add('active')
     }, 400);
 }
 
@@ -247,7 +275,11 @@ function internalStructureChange() {
     planetImg.classList.add('hide')
     planetGeologyImg.classList.add('hide')
     overviewButton.style.backgroundColor = ''
+    overviewButtonMobile.classList.remove('active')
+    overviewButtonMobile.style.borderColor = ''
     surfaceButton.style.backgroundColor = ''
+    surfaceButtonMobile.classList.remove('active')
+    surfaceButtonMobile.style.borderColor = ''
     setTimeout(function() { 
       // classList.remove 'hide' - fade in all the same info from above
       planetText.classList.remove('hide')
@@ -257,48 +289,64 @@ function internalStructureChange() {
         sourceLink.href = planetMercury[9]
         planetImg.src = planetMercury[10]
         internalButton.style.backgroundColor = mercuryColor
+        internalButtonMobile.classList.add('active')
+        internalButtonMobile.style.borderColor = mercuryColor
       }
       if (planetPage === 'VENUS') {
         planetText.innerText = planetVenus[8]
         sourceLink.href = planetVenus[9]
         planetImg.src = planetVenus[10]
         internalButton.style.backgroundColor = venusColor
+        internalButtonMobile.classList.add('active')
+        internalButtonMobile.style.borderColor = venusColor
       }
       if (planetPage === 'EARTH') {
         planetText.innerText = planetEarth[8]
         sourceLink.href = planetEarth[9]
         planetImg.src = planetEarth[10]
         internalButton.style.backgroundColor = earthColor
+        internalButtonMobile.classList.add('active')
+        internalButtonMobile.style.borderColor = earthColor
       }
       if (planetPage === 'MARS') {
         planetText.innerText = planetMars[8]
         sourceLink.href = planetMars[9]
         planetImg.src = planetMars[10]
         internalButton.style.backgroundColor = marsColor
+        internalButtonMobile.classList.add('active')
+        internalButtonMobile.style.borderColor = marsColor
       }
       if (planetPage === 'JUPITER') {
         planetText.innerText = planetJupiter[8]
         sourceLink.href = planetJupiter[9]
         planetImg.src = planetJupiter[10]
         internalButton.style.backgroundColor = jupiterColor
+        internalButtonMobile.classList.add('active')
+        internalButtonMobile.style.borderColor = jupiterColor
       }
       if (planetPage === 'SATURN') {
         planetText.innerText = planetSaturn[8]
         sourceLink.href = planetSaturn[9]
         planetImg.src = planetSaturn[10]
         internalButton.style.backgroundColor = saturnColor
+        internalButtonMobile.classList.add('active')
+        internalButtonMobile.style.borderColor = saturnColor
       }
       if (planetPage === 'URANUS') {
         planetText.innerText = planetUranus[8]
         sourceLink.href = planetUranus[9]
         planetImg.src = planetUranus[10]
         internalButton.style.backgroundColor = uranusColor
+        internalButtonMobile.classList.add('active')
+        internalButtonMobile.style.borderColor = uranusColor
       }
       if (planetPage === 'NEPTUNE') {
         planetText.innerText = planetNeptune[8]
         sourceLink.href = planetNeptune[9]
         planetImg.src = planetNeptune[10]
         internalButton.style.backgroundColor = neptuneColor
+        internalButtonMobile.classList.add('active')
+        internalButtonMobile.style.borderColor = neptuneColor
       }
     }, 300);
 }
@@ -309,6 +357,10 @@ function surfaceGeologyChange() {
   planetImg.classList.add('hide')
   overviewButton.style.backgroundColor = ''
   internalButton.style.backgroundColor = ''
+  overviewButtonMobile.classList.remove('active')
+  overviewButtonMobile.style.borderColor = ''
+  internalButtonMobile.classList.remove('active')
+  internalButtonMobile.style.borderColor = ''
   setTimeout(function() { 
     // classList.remove 'hide' - fade in all the same info from above
     planetText.classList.remove('hide')
@@ -319,6 +371,8 @@ function surfaceGeologyChange() {
       planetImg.src = planetMercury[7]
       planetGeologyImg.classList.remove('hide')
       surfaceButton.style.backgroundColor = mercuryColor
+      surfaceButtonMobile.classList.add('active')
+      surfaceButtonMobile.style.borderColor = mercuryColor
     }
     if (planetPage === 'VENUS') {
       planetText.innerText = planetVenus[8]
@@ -326,6 +380,8 @@ function surfaceGeologyChange() {
       planetImg.src = planetVenus[7]
       planetGeologyImg.classList.remove('hide')
       surfaceButton.style.backgroundColor = venusColor
+      surfaceButtonMobile.classList.add('active')
+      surfaceButtonMobile.style.borderColor = venusColor
     }
     if (planetPage === 'EARTH') {
       planetText.innerText = planetEarth[8]
@@ -333,6 +389,8 @@ function surfaceGeologyChange() {
       planetImg.src = planetEarth[7]
       planetGeologyImg.classList.remove('hide')
       surfaceButton.style.backgroundColor = earthColor
+      surfaceButtonMobile.classList.add('active')
+      surfaceButtonMobile.style.borderColor = earthColor
     }
     if (planetPage === 'MARS') {
       planetText.innerText = planetMars[8]
@@ -340,6 +398,8 @@ function surfaceGeologyChange() {
       planetImg.src = planetMars[7]
       planetGeologyImg.classList.remove('hide')
       surfaceButton.style.backgroundColor = marsColor
+      surfaceButtonMobile.classList.add('active')
+      surfaceButtonMobile.style.borderColor = marsColor
     }
     if (planetPage === 'JUPITER') {
       planetText.innerText = planetJupiter[8]
@@ -347,6 +407,8 @@ function surfaceGeologyChange() {
       planetImg.src = planetJupiter[7]
       planetGeologyImg.classList.remove('hide')
       surfaceButton.style.backgroundColor = jupiterColor
+      surfaceButtonMobile.classList.add('active')
+      surfaceButtonMobile.style.borderColor = jupiterColor
     }
     if (planetPage === 'SATURN') {
       planetText.innerText = planetSaturn[8]
@@ -354,6 +416,8 @@ function surfaceGeologyChange() {
       planetImg.src = planetSaturn[7]
       planetGeologyImg.classList.remove('hide')
       surfaceButton.style.backgroundColor = saturnColor
+      surfaceButtonMobile.classList.add('active')
+      surfaceButtonMobile.style.borderColor = saturnColor
     }
     if (planetPage === 'URANUS') {
       planetText.innerText = planetUranus[8]
@@ -361,6 +425,8 @@ function surfaceGeologyChange() {
       planetImg.src = planetUranus[7]
       planetGeologyImg.classList.remove('hide')
       surfaceButton.style.backgroundColor = uranusColor
+      surfaceButtonMobile.classList.add('active')
+      surfaceButtonMobile.style.borderColor = uranusColor
     }
     if (planetPage === 'NEPTUNE') {
       planetText.innerText = planetNeptune[8]
@@ -368,6 +434,8 @@ function surfaceGeologyChange() {
       planetImg.src = planetNeptune[7]
       planetGeologyImg.classList.remove('hide')
       surfaceButton.style.backgroundColor = neptuneColor
+      surfaceButtonMobile.classList.add('active')
+      surfaceButtonMobile.style.borderColor = neptuneColor
     }
   }, 300);
 }
@@ -394,11 +462,18 @@ function overviewChange() {
       planetImg.src = planet[7]
       planetGeologyImg.src = planet[13]
       overviewButton.style.backgroundColor = planet[14]
+      overviewButtonMobile.style.borderColor = planet[14]
+      overviewButtonMobile.classList.add('active')
     }, 400);
 }
   let planetPage = planetName.innerText
   internalButton.style.backgroundColor = ''
+  internalButtonMobile.classList.remove('active')
+  internalButtonMobile.style.borderColor = ''
   surfaceButton.style.backgroundColor = ''
+  surfaceButtonMobile.classList.remove('active')
+  surfaceButtonMobile.style.borderColor = ''
+
   if (planetPage === 'MERCURY') {
     planetOverview(planetMercury)    
   }
@@ -424,12 +499,10 @@ function overviewChange() {
     planetOverview(planetNeptune) 
   }
 }
-
-
-
 });
 
 
+// HAMBURGER MENU
 const menu = document.querySelector(".menu");
 const menuItems = document.querySelectorAll(".menuItem");
 const hamburger= document.querySelector(".hamburger");
@@ -452,19 +525,20 @@ function toggleMenu() {
 }
 
 hamburger.addEventListener("click", toggleMenu);
-
-menuItems.forEach( 
-  function(menuItem) { 
-    menuItem.addEventListener("click", toggleMenu);
-  }
-)
+menuItems.forEach(function(menuItem) { 
+    menuItem.addEventListener("click", () => {
+      if (window.innerWidth <= 660) {
+        toggleMenu()
+      }
+    })
+})
 
 
 
 
 // set your own values between here
-let maxFontSize = 4.5
-let minFontSize = 1.5
+let maxFontSize = 28.75
+let minFontSize = 19.625
 let maxWidth = 41.25
 let minWidth = 23.438
 // set your own values between here

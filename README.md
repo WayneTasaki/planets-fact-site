@@ -27,9 +27,6 @@ Your users should be able to:
 <br>
 <br>
 
-
-
-
 ## Built with
 
 <p>HTML, CSS</p>

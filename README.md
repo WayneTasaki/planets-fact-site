@@ -25,12 +25,10 @@ Your users should be able to:
 2. See hover states for all interactive elements on the page
 3. View each planet page and toggle between the "Overview", "Internal Structure", and "Surface Geology" tabs</p>
 <br>
-<br>
 
 ## Built with
 
-<p>HTML, CSS</p>
+<p>HTML, CSS, Javascript</p>
 
 ## What I learned
-- clamp() was a major learning experience for me. Using the min, preferred, and max values I was able to have the orange "plan card" and phone responsive and move around the page. Originally I positioned the objects absolutely and used top, right, left, & bottom and used clamp to get them to move. For the most part it worked but using clamp with margins was a lot easier especially when media queries were involved. 
-- I also learned more about the use of svg. Previously I just used them as regular images and placed them where they needed to be on the page. This time however, the social media icons at the bottom of the page needed to change colors on hover and I realized I had to paste the whole svg code and change their fill using css.
+- This is the largest project I've built to date.

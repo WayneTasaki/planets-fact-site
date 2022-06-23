@@ -21,7 +21,7 @@
   --light-grey: #838391;
 }
 html {
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 body {
   background-color: var(--space);
@@ -497,6 +497,7 @@ li {
     margin-right: 1.563rem;
   }
   .showMenu {
+    display: block;
     transform: translateY(0);
     opacity: 1;
   }

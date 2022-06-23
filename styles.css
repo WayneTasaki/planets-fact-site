@@ -27,7 +27,6 @@ body {
   background-color: var(--space);
   position: relative;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
 }
 main {
   max-width: 1640px;

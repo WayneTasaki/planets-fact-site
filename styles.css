@@ -27,7 +27,7 @@ body {
   background-color: var(--space);
   position: relative;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch
+  -webkit-overflow-scrolling: touch;
 }
 main {
   max-width: 1640px;
@@ -278,6 +278,10 @@ li {
   opacity: 0;
 }
 
+/* Class to hide  and prevent scrolling */
+.prevent {
+  overflow: hidden;
+}
 
 /* ------ */
 /* TABLET */

@@ -21,7 +21,7 @@
   --light-grey: #838391;
 }
 html {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 body {
   background-color: var(--space);
@@ -315,7 +315,7 @@ li {
     display: flex;
     flex-direction: column;
     padding: 0;
-    height: 725px;
+    /* height: 725px; */
     margin: 0;
   }
   .img-wrapper {
@@ -536,9 +536,9 @@ li {
     border-bottom: 4px solid;
     opacity: 1;
   }
-  .info-wrapper {
+  /* .info-wrapper {
     height: auto;
-  }
+  } */
   #planetImg {
     transform: scale(.5);
   }

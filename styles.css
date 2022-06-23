@@ -30,7 +30,7 @@ body {
 }
 main {
   max-width: 1640px;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0 auto;
 }
 @keyframes slide {

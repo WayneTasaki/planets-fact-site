@@ -27,6 +27,7 @@ body {
   background-color: var(--space);
   position: relative;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch
 }
 main {
   max-width: 1640px;
@@ -46,7 +47,7 @@ main {
   background-repeat: repeat-x;
   width: 5000px;
   height: 100vh;
-  z-index: 0;
+  z-index: -1;
   position: absolute;
   
   animation: slide 60s linear infinite;
@@ -242,6 +243,7 @@ li {
   justify-content: space-between;
   padding-right: 165px;
   padding-left: 165px;
+  margin-bottom: 1rem;
 }
 .stats-box {
   width: 255px;

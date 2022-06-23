@@ -284,6 +284,7 @@ li {
 /* ------ */
 @media (max-width: 1018px) {
   body {
+    touch-action: none;
     padding: 2.5rem 0 2.5rem 0;
   }
   main {
